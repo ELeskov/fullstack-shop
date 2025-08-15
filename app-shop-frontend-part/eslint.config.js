@@ -1,18 +1,20 @@
 import js from '@eslint/js'
+import prettierConfig from 'eslint-config-prettier'
+import prettierPlugin from 'eslint-plugin-prettier'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
+import simpleSortImportPlugin from 'eslint-plugin-simple-import-sort'
 import { globalIgnores } from 'eslint/config'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
-import prettierPlugin from 'eslint-plugin-prettier'
-import prettierConfig from 'eslint-config-prettier'
 
 export default tseslint.config([
   globalIgnores(['dist']),
   {
     files: ['**/*.{ts,tsx}'],
     plugins: {
-      prettier: prettierPlugin
+      prettier: prettierPlugin,
+      'simple-import-sort': simpleSortImportPlugin
     },
     extends: [
       js.configs.recommended,
@@ -27,51 +29,33 @@ export default tseslint.config([
     },
     rules: {
       ...prettierPlugin.configs.recommended.rules,
+      'padding-line-between-statements': [
+        'error',
+        { blankLine: 'always', prev: 'import', next: '*' },
+        { blankLine: 'any', prev: 'import', next: 'import' } // не вставлять лишние пустые строки между импортами
+      ],
+      'simple-import-sort/imports': [
+        'error',
+        {
+          groups: [
+            ['^react', '^next', '^[a-z]'],
+            ['^@shared', '^@features', '^@entities', '^@widgets'],
+            ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+            ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+            ['^.+\\.s?css$']
+          ]
+        }
+      ],
+      'simple-import-sort/exports': 'error',
+
       'no-console': 'warn',
       'eqeqeq': 'warn',
       'curly': 'warn',
       'no-else-return': 'warn',
       'default-case': 'warn',
 
-      'import/order': [
-        'error',
-        {
-          groups: [
-            ['builtin', 'external'],
-            'internal',
-            'sibling',
-            'parent',
-            'index',
-          ],
-          pathGroups: [
-            {
-              pattern: '@shared/**',
-              group: 'internal',
-              position: 'before',
-            },
-            {
-              pattern: '@features/**',
-              group: 'internal',
-              position: 'before',
-            },
-            {
-              pattern: '@entities/**',
-              group: 'internal',
-              position: 'before',
-            },
-            {
-              pattern: '@widgets/**',
-              group: 'internal',
-              position: 'before',
-            },
-          ],
-          'newlines-between': 'always',
-        },
-      ],
-      'import/no-duplicates': 'error',
-      'import/no-unresolved': 'error',
-      'import/named': 'error',
-      'import/namespace': 'error',
+      'import/order': 'off',
+      'import/no-unresolved': 'off',
     },
   },
 ])
