@@ -1,10 +1,10 @@
 import { createBrowserRouter } from 'react-router'
 
-import { Button } from '@/shared/ui/components/ui/button'
+import App from '@/App'
 
 export const router = createBrowserRouter([
   {
     path: '',
-    element: <Button>Click</Button>,
+    element: <App />,
   },
 ])
