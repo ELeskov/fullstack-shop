@@ -3,6 +3,6 @@ import { createBrowserRouter } from 'react-router'
 export const router = createBrowserRouter([
   {
     path: '',
-    element: <div>Привет</div>,
+    element: <div>Hi</div>,
   },
 ])
