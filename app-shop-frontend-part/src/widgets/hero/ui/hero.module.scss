@@ -1,0 +1,31 @@
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: rem(100) rem(6);
+
+  &__wrapper {
+    max-width: rem(880);
+  }
+
+  &__title,
+  &__description {
+    letter-spacing: rem(2);
+  }
+
+  &__title {
+    @include fluid-text(48, 32);
+
+    line-height: 115%;
+    margin-bottom: rem(20);
+  }
+
+  &__accent-text {
+    color: var(--color-gray);
+  }
+
+  &__description {
+    color: var(--color-gray);
+  }
+}

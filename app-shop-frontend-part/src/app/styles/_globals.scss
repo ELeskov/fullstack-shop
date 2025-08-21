@@ -1,6 +1,16 @@
 @use 'helpers' as *;
 
 body {
-  @include fluid-text(18, 14);
+  @include fluid-text(16, 14);
+
   font-family: var(--font-family-base);
+  transition: all 0.2s;
+  &::selection {
+    background-color: var(--color-ligth);
+  }
+}
+
+h1 {
+  font-size: rem(48);
+  font-weight: 700;
 }

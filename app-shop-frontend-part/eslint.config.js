@@ -7,6 +7,7 @@ import simpleSortImportPlugin from 'eslint-plugin-simple-import-sort'
 import { globalIgnores } from 'eslint/config'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
+import unusedImports from 'eslint-plugin-unused-imports'
 
 export default tseslint.config([
   globalIgnores(['dist']),
@@ -14,6 +15,7 @@ export default tseslint.config([
     files: ['**/*.{ts,tsx}'],
     plugins: {
       prettier: prettierPlugin,
+      'unused-imports': unusedImports,
       'simple-import-sort': simpleSortImportPlugin
     },
     extends: [
@@ -56,6 +58,19 @@ export default tseslint.config([
 
       'import/order': 'off',
       'import/no-unresolved': 'off',
+
+      // Удаление неиспользуемых импортов
+      'no-unused-vars': 'warn',
+      'unused-imports/no-unused-imports': 'error',
+      'unused-imports/no-unused-vars': [
+        'warn',
+        {
+          vars: 'all',
+          varsIgnorePattern: '^_',
+          args: 'after-used',
+          argsIgnorePattern: '^_'
+        },
+      ],
     },
   },
 ])
