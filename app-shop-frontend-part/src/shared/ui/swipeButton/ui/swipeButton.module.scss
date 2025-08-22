@@ -1,0 +1,54 @@
+.swipe-button {
+  position: relative;
+  user-select: none;
+
+  &:active,
+  &:hover {
+    &::after {
+      opacity: 0;
+      animation: none;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: rem(180);
+    height: rem(34);
+    border-radius: rem(8);
+    background: #fff;
+    z-index: -1;
+    opacity: 0.5;
+    animation-name: bouncing;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
+  }
+
+  &:hover {
+    translate: rem(10);
+  }
+
+  &__icon {
+    transition: all 0.2s ease-out;
+    width: rem(20) !important;
+    height: auto;
+  }
+
+  &__wrapper {
+    display: flex;
+    column-gap: rem(10);
+    align-self: center;
+  }
+}
+
+@keyframes bouncing {
+  0% {
+    translate: 0;
+  }
+
+  100% {
+    translate: rem(200);
+    opacity: 0;
+  }
+}

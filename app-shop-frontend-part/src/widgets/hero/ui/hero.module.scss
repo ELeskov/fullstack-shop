@@ -3,9 +3,12 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: rem(100) rem(6);
+  padding-block: rem(100);
 
   &__wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(20);
     max-width: rem(880);
   }
 
@@ -15,10 +18,9 @@
   }
 
   &__title {
-    @include fluid-text(48, 32);
-
+    @include fluid-text(48, 30);
+    font-weight: normal;
     line-height: 115%;
-    margin-bottom: rem(20);
   }
 
   &__accent-text {

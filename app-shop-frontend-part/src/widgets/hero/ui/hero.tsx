@@ -7,6 +7,8 @@ import {
 
 import stl from './hero.module.scss'
 
+import { SwipeButton } from '@/shared/ui/swipeButton'
+
 export function Hero() {
   return (
     <section className={stl['hero']}>
@@ -22,7 +24,10 @@ export function Hero() {
                 delay: i * 0.05,
                 ease: 'easeOut',
               }}
-              style={{ display: 'inline-block', marginRight: '10px' }}
+              style={{
+                display: 'inline-block',
+                marginRight: '10px',
+              }}
             >
               {word}
             </motion.span>
@@ -46,6 +51,7 @@ export function Hero() {
             </motion.span>
           ))}
         </p>
+        <SwipeButton />
       </div>
     </section>
   )

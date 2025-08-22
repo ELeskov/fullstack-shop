@@ -19,7 +19,7 @@ import { Logo } from '@/shared/ui/logo'
 import { CATEGORIES } from '@/widgets/header/lib'
 
 export function Header() {
-  const [isAuthorization, setIsAuthorization] = useState(false)
+  const [isAuthorization, setIsAuthorization] = useState(true)
 
   return (
     <header className={stl['header']}>
