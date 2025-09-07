@@ -1,9 +1,9 @@
-import activeIcon from '@shared/assets/icons/favicon-bg-dark.svg'
-import inactiveIcon from '@shared/assets/icons/favicon-bg-white.svg'
+import activeIcon from '@/shared/assets/icons/favicon-bg-dark.svg'
+import inactiveIcon from '@/shared/assets/icons/favicon-bg-white.svg'
 
+import { useDynamicFavicon } from '@/app/hooks/useDynamicFavicon'
+import { Providers } from '@/app/providers'
 import { AppRouters } from '@/app/routes'
-import { useDynamicFavicon } from '@app/hooks/useDynamicFavicon'
-import { Providers } from '@app/providers'
 
 export default function App() {
   useDynamicFavicon(activeIcon, inactiveIcon)

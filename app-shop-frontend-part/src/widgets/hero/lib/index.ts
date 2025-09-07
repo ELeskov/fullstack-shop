@@ -1,4 +1,1 @@
-export {
-  animationDescriptionHeroText,
-  animationTitleHeroText,
-} from './constants'
+export { animationTitleHeroText } from './constants'

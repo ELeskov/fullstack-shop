@@ -1,0 +1,19 @@
+.hits-product {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(10);
+  margin-block: rem(100);
+
+  &__product-list {
+    display: flex;
+    column-gap: rem(20);
+  }
+
+  &__description {
+    color: var(--color-gray);
+  }
+
+  &__slide {
+    width: clamp(180px, 20vw, 250px) !important;
+  }
+}

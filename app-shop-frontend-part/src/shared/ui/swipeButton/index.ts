@@ -1,1 +1,1 @@
-export { SwipeButton } from './ui/swipeButton'
+export { SwipeButton } from './swipeButton'

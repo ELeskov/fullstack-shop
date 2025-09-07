@@ -1,20 +1,21 @@
 import { Outlet } from 'react-router'
 import clsx from 'clsx'
 
-import stl from './mainLayout.module.scss'
-
+import { Footer } from '@/widgets/footer'
 import { Header } from '@/widgets/header'
+
+import s from './mainLayout.module.scss'
 
 export function MainLayout() {
   return (
-    <div className={clsx(stl.layout, 'page-wrapper', 'dark')}>
+    <div className={clsx(s.layout, 'page-wrapper')}>
       <Header />
 
       <main>
         <Outlet />
       </main>
 
-      {/* <Footer/> */}
+      <Footer />
     </div>
   )
 }

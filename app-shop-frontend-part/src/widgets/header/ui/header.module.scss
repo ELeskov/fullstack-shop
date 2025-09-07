@@ -1,10 +1,5 @@
 .header {
-  padding-inline: rem(10);
   color: var(--color-gray);
-  
-  @include mobile-s {
-    padding-inline: rem(0);
-  }
 
   &-list {
     display: flex;
@@ -18,7 +13,7 @@
 
     @include hover {
       color: white;
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgb(255, 255, 255, 0.1);
     }
   }
 

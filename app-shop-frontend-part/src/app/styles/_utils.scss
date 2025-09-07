@@ -6,7 +6,11 @@
   padding-inline: var(--container-padding-x);
 
   @include mobile-s {
-    padding-inline: rem(6);
+    max-width: calc(
+      var(--container-width) + (var(--container-padding-x) * 2) + 20px
+    );
+
+    padding-inline: rem(10);
   }
 }
 

@@ -1,0 +1,29 @@
+import { Breadcrumb } from '@/shared/ui/components/ui/breadcrumb'
+import { CatalogFilters } from '@/widgets/catalogFilters'
+import { ProductCardList } from '@/widgets/productCardList'
+
+import s from './catalogPage.module.scss'
+
+export function CatalogPage() {
+  return (
+    <section className={s['catalog-page']}>
+      <div className={s['catalog-page__breadcrumbs']}>
+        <Breadcrumb />
+      </div>
+      <div className={s['catalog-title-wrap']}>
+        <h1 className={s['catalog-title']}>Каталог</h1>
+        <span className={s['number-product-found']}>
+          {(142536).toLocaleString()} товаров
+        </span>
+      </div>
+      <div className={s['catalog-page__filters']}>
+        <CatalogFilters />
+      </div>
+      <div className={s['catalog-page__main']}>
+        <div className={s['catalog-page__content']}>
+          <ProductCardList />
+        </div>
+      </div>
+    </section>
+  )
+}

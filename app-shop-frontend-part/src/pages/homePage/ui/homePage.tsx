@@ -1,9 +1,11 @@
-import { Hero } from '@widgets/hero'
+import { Hero } from '@/widgets/hero'
+import { HitsProduct } from '@/widgets/hitsProduct'
 
 export function HomePage() {
   return (
-    <div>
+    <>
       <Hero />
-    </div>
+      <HitsProduct />
+    </>
   )
 }

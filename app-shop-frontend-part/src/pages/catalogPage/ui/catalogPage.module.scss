@@ -1,0 +1,21 @@
+.catalog-page {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(20);
+  margin-block: rem(50);
+}
+
+.catalog-title {
+  &-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: rem(20);
+  }
+}
+
+.number-product-found {
+  color: var(--color-gray);
+}
+
+

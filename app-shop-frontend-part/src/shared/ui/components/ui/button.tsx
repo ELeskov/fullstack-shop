@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import { cn } from '@app/lib/utils'
+import { cn } from '@/app/lib/utils'
 import { Slot } from '@radix-ui/react-slot'
 
 const buttonVariants = cva(
@@ -55,4 +55,5 @@ function Button({
   )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export { Button, buttonVariants }
