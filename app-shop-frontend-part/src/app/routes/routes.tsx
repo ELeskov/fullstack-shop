@@ -4,6 +4,7 @@ import { ROUTES } from '@/shared/config'
 import { FallBack } from '@/shared/ui/fallback'
 
 import { MainLayout } from '@/app/layout'
+import { CartPage } from '@/pages/cartPage/ui/cartPage'
 import { CatalogPage } from '@/pages/catalogPage'
 import { HomePage } from '@/pages/homePage'
 import { LikePage } from '@/pages/likePage'
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.like,
         element: <LikePage />,
+      },
+      {
+        path: ROUTES.cart,
+        element: <CartPage />,
       },
     ],
   },
