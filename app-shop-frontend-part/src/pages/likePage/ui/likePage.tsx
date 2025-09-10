@@ -1,4 +1,4 @@
-import clsx from "clsx"
+import clsx from 'clsx'
 
 import { LikeProductsList } from '@/widgets/likeProductsList/ui/likeProductsList'
 

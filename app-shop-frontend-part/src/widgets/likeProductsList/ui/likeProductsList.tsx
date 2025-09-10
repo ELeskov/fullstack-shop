@@ -1,3 +1,11 @@
+import clsx from 'clsx'
+
+import s from './likeProductsList.module.scss'
+
 export function LikeProductsList() {
-  return <div></div>
+  return (
+    <section
+      className={clsx(s['like-products-list'], 'product-card-list')}
+    ></section>
+  )
 }

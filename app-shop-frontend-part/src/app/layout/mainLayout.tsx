@@ -11,7 +11,7 @@ export function MainLayout() {
     <div className={clsx(s.layout, 'page-wrapper')}>
       <Header />
 
-      <main>
+      <main className="my-[50px]">
         <Outlet />
       </main>
 

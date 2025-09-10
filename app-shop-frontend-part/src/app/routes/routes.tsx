@@ -6,6 +6,7 @@ import { FallBack } from '@/shared/ui/fallback'
 import { MainLayout } from '@/app/layout'
 import { CatalogPage } from '@/pages/catalogPage'
 import { HomePage } from '@/pages/homePage'
+import { LikePage } from '@/pages/likePage'
 import { LoginPage } from '@/pages/loginPage'
 import { SignupPage } from '@/pages/signupPage'
 
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.catalog,
         element: <CatalogPage />,
+      },
+      {
+        path: ROUTES.like,
+        element: <LikePage />,
       },
     ],
   },

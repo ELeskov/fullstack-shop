@@ -104,7 +104,7 @@ export function Header() {
                 <Link
                   className={s['header__actions-link']}
                   aria-label="Избранные товары"
-                  to={''}
+                  to={ROUTES.like}
                 >
                   <Heart
                     aria-hidden="true"
