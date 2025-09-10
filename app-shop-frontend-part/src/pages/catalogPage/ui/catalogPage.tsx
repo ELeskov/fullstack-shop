@@ -1,4 +1,5 @@
 import { Breadcrumb } from '@/shared/ui/components/ui/breadcrumb'
+import { TitlePage } from '@/shared/ui/titlePage/titlePage'
 import { CatalogFilters } from '@/widgets/catalogFilters'
 import { ProductCardList } from '@/widgets/productCardList'
 
@@ -11,7 +12,7 @@ export function CatalogPage() {
         <Breadcrumb />
       </div>
       <div className={s['catalog-title-wrap']}>
-        <h1 className={s['catalog-title']}>Каталог</h1>
+        <TitlePage text="Каталог" />
         <span className={s['number-product-found']}>
           {(142536).toLocaleString()} товаров
         </span>

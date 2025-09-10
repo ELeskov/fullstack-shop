@@ -1,3 +1,3 @@
 export function LikeProductsList() {
-  return <div></div>
+  return <section></section>
 }

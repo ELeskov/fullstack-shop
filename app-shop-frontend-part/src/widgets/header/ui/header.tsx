@@ -117,7 +117,7 @@ export function Header() {
                 <Link
                   className={s['header__actions-link']}
                   aria-label="Корзина товаров"
-                  to={''}
+                  to={ROUTES.cart}
                 >
                   <ShoppingCart
                     aria-hidden="true"

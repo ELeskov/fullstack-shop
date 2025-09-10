@@ -3,4 +3,5 @@ export const ROUTES = {
   login: '/login',
   signup: '/signup',
   catalog: '/catalog',
+  cart: '/cart',
 }
