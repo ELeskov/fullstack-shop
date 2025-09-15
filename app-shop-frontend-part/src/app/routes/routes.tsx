@@ -3,12 +3,15 @@ import { createBrowserRouter } from 'react-router'
 import { ROUTES } from '@/shared/config'
 import { FallBack } from '@/shared/ui/fallback'
 
-import { MainLayout } from '@/app/layout'
+import { ProfileLayout } from '../layout/profileLayout'
+
+import { MainLayout } from '@/app/layout/mainLayout'
 import { CartPage } from '@/pages/cartPage/ui/cartPage'
 import { CatalogPage } from '@/pages/catalogPage'
 import { HomePage } from '@/pages/homePage'
 import { LikePage } from '@/pages/likePage'
 import { LoginPage } from '@/pages/loginPage'
+import { ProfilePage } from '@/pages/profilePage'
 import { SignupPage } from '@/pages/signupPage'
 
 export const router = createBrowserRouter([
@@ -33,12 +36,22 @@ export const router = createBrowserRouter([
         element: <CatalogPage />,
       },
       {
-        path: ROUTES.like,
+        path: ROUTES.profile.like,
         element: <LikePage />,
       },
       {
-        path: ROUTES.cart,
+        path: ROUTES.profile.cart,
         element: <CartPage />,
+      },
+    ],
+  },
+  {
+    element: <ProfileLayout />,
+    errorElement: <FallBack />,
+    children: [
+      {
+        path: ROUTES.profile.root,
+        element: <ProfilePage />,
       },
     ],
   },

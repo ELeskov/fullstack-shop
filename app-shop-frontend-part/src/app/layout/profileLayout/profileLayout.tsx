@@ -4,14 +4,12 @@ import clsx from 'clsx'
 import { Footer } from '@/widgets/footer'
 import { Header } from '@/widgets/header'
 
-import s from './mainLayout.module.scss'
-
-export function MainLayout() {
+export function ProfileLayout() {
   return (
-    <div className={clsx(s.layout, 'page-wrapper')}>
+    <div className={clsx('layout', 'page-wrapper--profile')}>
       <Header />
 
-      <main className="my-[50px]">
+      <main>
         <Outlet />
       </main>
 

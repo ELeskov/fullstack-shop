@@ -1,16 +1,12 @@
 @use 'helpers' as *;
 
 .page-wrapper {
-  max-width: calc(var(--container-width) + (var(--container-padding-x) * 2));
-  margin-inline: auto;
-  padding-inline: var(--container-padding-x);
+  @include container-base();
+  @include mobile-adaptation();
 
-  @include mobile-s {
-    max-width: calc(
-      var(--container-width) + (var(--container-padding-x) * 2) + 20px
-    );
-
-    padding-inline: rem(10);
+  &--profile {
+    @include container-base(var(--container-profile-width));
+    @include mobile-adaptation(var(--container-profile-width));
   }
 }
 

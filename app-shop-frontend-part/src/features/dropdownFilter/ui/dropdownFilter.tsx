@@ -32,7 +32,7 @@ export function DropdownFilter() {
       <DropdownMenuContent
         defaultValue="option-one"
         align="start"
-        className="w-max border-white/20"
+        className="w-max"
       >
         <DropdownMenuRadioGroup
           value={selectedOption}

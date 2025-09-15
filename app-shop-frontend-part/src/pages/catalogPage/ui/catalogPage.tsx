@@ -1,5 +1,5 @@
-import { Breadcrumb } from '@/shared/ui/components/ui/breadcrumb'
 import { TitlePage } from '@/shared/ui/titlePage/titlePage'
+import { Breadcrumbs } from '@/widgets/breadcrumbs'
 import { CatalogFilters } from '@/widgets/catalogFilters'
 import { ProductCardList } from '@/widgets/productCardList'
 
@@ -9,7 +9,7 @@ export function CatalogPage() {
   return (
     <section className={s['catalog-page']}>
       <div className={s['catalog-page__breadcrumbs']}>
-        <Breadcrumb />
+        <Breadcrumbs />
       </div>
       <div className={s['catalog-title-wrap']}>
         <TitlePage text="Каталог" />

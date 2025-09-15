@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
 import clsx from 'clsx'
-import { CircleUserRound, Heart, Menu, ShoppingCart } from 'lucide-react'
+import { Heart, Menu, ShoppingCart } from 'lucide-react'
 
 import { ROUTES } from '@/shared/config'
 import { Button } from '@/shared/ui/components/ui/button'
@@ -23,6 +23,7 @@ import {
 } from '@/shared/ui/components/ui/sheet'
 import { ListItem } from '@/shared/ui/listItem'
 import { Logo } from '@/shared/ui/logo'
+import { DropdownMenuProfile } from '@/widgets/dropdownMenuProfile'
 
 import s from './header.module.scss'
 
@@ -104,23 +105,18 @@ export function Header() {
                 <Link
                   className={s['header__actions-link']}
                   aria-label="Избранные товары"
-                  to={ROUTES.like}
+                  to={ROUTES.profile.like}
                 >
-                  <Heart
-                    aria-hidden="true"
-                    className={s['header__actions-icon']}
-                    size={24}
-                  />
+                  <Heart className={s['header__actions-icon']} size={24} />
                 </Link>
               </li>
               <li className={s['header__actions-item']}>
                 <Link
                   className={s['header__actions-link']}
                   aria-label="Корзина товаров"
-                  to={ROUTES.cart}
+                  to={ROUTES.profile.cart}
                 >
                   <ShoppingCart
-                    aria-hidden="true"
                     className={s['header__actions-icon']}
                     size={24}
                   />
@@ -130,13 +126,9 @@ export function Header() {
                 <Link
                   className={s['header__actions-link']}
                   aria-label="Профиль пользователя"
-                  to={''}
+                  to={ROUTES.profile.root}
                 >
-                  <CircleUserRound
-                    aria-hidden="true"
-                    className={s['header__actions-icon']}
-                    size={24}
-                  />
+                  <DropdownMenuProfile />
                 </Link>
               </li>
             </ul>

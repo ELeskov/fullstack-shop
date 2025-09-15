@@ -1,7 +1,7 @@
 .catalog-page {
   display: flex;
   flex-direction: column;
-  row-gap: rem(20);
+  gap: rem(20);
 }
 
 .catalog-title {
@@ -16,5 +16,3 @@
 .number-product-found {
   color: var(--color-gray);
 }
-
-

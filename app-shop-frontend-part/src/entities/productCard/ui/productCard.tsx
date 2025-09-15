@@ -2,12 +2,14 @@ import { Link } from 'react-router'
 import clsx from 'clsx'
 
 import { AddBasketButton } from '@/shared/ui/addBasketButton'
+import { HeartButton } from '@/features/heartButton'
 
 import s from './productCard.module.scss'
 
 export function ProductCard({ className }: { className?: string }) {
   return (
     <article className={clsx(s['product-card'], className)}>
+      <HeartButton className="product-card__heard" />
       <Link to={''}>
         <div className={s['product-card__wrapper']}>
           <div className={s['product-card__top']}>
