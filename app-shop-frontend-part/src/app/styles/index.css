@@ -1,8 +1,5 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 /* stylelint-disable-next-line scss/at-rule-no-unknown */
 @custom-variant dark (&:is(.dark *));
 

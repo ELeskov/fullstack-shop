@@ -34,6 +34,7 @@ export function Header() {
     <header className={s['header']}>
       <div className={s['header__body']}>
         <Logo className={s['header-logo']} />
+
         <NavigationMenu
           viewport={false}
           aria-label="Меню навигации"
