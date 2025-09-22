@@ -1,11 +1,7 @@
 .profile-page {
   position: relative;
   display: grid;
-  min-height: 100vh;
-  height: 100vh;
+  grid-template-columns: auto 1fr;
+  align-items: start;
   gap: rem(20);
-  grid-template-columns: 300px 4fr;
-
-  &__statistics {
-  }
 }

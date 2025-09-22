@@ -41,8 +41,6 @@ import {
 
 import { profileNavData } from '../lib'
 
-import s from './sidebarProfile.module.scss'
-
 export function SidebarProfile() {
   const [selectedVersion, setSelectedVersion] = useState(
     profileNavData.versions[0],
@@ -50,7 +48,7 @@ export function SidebarProfile() {
   const { isMobile } = useSidebar()
 
   return (
-    <Sidebar className="sticky top-0 h-screen" collapsible="icon">
+    <Sidebar className="absolute h-[60dvh]" collapsible="icon">
       <SidebarHeader>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -78,14 +76,14 @@ export function SidebarProfile() {
                 key={version}
                 onSelect={() => setSelectedVersion(version)}
               >
-                v{version}{' '}
+                v{version}
                 {version === selectedVersion && <Check className="ml-auto" />}
               </DropdownMenuItem>
             ))}
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarHeader>
-      <SidebarContent className={s['sidebar-content']}>
+      <SidebarContent>
         {profileNavData.navMain.map((item) => (
           <SidebarGroup key={item.title}>
             <SidebarGroupLabel>{item.title}</SidebarGroupLabel>

@@ -7,6 +7,10 @@
   &--profile {
     @include container-base(var(--container-profile-width));
     @include mobile-adaptation(var(--container-profile-width));
+
+    main {
+      margin-block: 0;
+    }
   }
 }
 
