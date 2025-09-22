@@ -1,4 +1,5 @@
 import {
+  SidebarInset,
   SidebarProvider,
   SidebarTrigger,
 } from '@/shared/ui/components/ui/sidebar'
@@ -11,9 +12,14 @@ export function ProfilePage() {
     <div className={s['profile-page']}>
       <SidebarProvider>
         <SidebarProfile />
+
         <SidebarTrigger />
+        <SidebarInset>
+          <section className={s['profile-page__statistics']}>
+            statistics
+          </section>
+        </SidebarInset>
       </SidebarProvider>
-      <section className={s['profile-page__statistics']}>statistics</section>
     </div>
   )
 }

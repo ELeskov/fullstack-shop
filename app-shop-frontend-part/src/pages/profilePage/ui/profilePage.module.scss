@@ -1,6 +1,8 @@
 .profile-page {
   position: relative;
   display: grid;
+  min-height: 100vh;
+  height: 100vh;
   gap: rem(20);
   grid-template-columns: 300px 4fr;
 

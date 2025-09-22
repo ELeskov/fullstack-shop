@@ -46,6 +46,8 @@
 
   &__actions {
     &-list {
+      display: flex;
+      align-items: center;
       column-gap: rem(20);
     }
     &-icon {

@@ -1,0 +1,1 @@
+export { profileNavData } from './profileNavData'

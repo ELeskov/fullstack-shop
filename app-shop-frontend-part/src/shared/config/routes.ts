@@ -16,6 +16,8 @@ export const ROUTES = {
       statistics: '/statistics',
       products: '/products',
       settings: '/settings',
+      colors: '/colors',
+      categories: '/categories',
     }),
 
     settings: '/settings',
