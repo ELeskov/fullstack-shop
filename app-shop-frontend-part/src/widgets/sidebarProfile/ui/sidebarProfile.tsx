@@ -3,7 +3,6 @@ import { Link } from 'react-router'
 import {
   Check,
   ChevronsUpDown,
-  GalleryVerticalEnd,
   LogOut,
   Sparkles,
   UserRoundX,
@@ -38,31 +37,29 @@ import {
   SidebarRail,
   useSidebar,
 } from '@/shared/ui/components/ui/sidebar'
+import { UserAvatar } from '@/shared/ui/userAvatar'
 
 import { profileNavData } from '../lib'
 
 export function SidebarProfile() {
   const [selectedVersion, setSelectedVersion] = useState(
-    profileNavData.versions[0],
+    profileNavData.shops[0],
   )
   const { isMobile } = useSidebar()
 
   return (
-    <Sidebar className="absolute h-[60dvh]" collapsible="icon">
+    <Sidebar className="absolute h-[calc(100dvh-80px)]" collapsible="icon">
       <SidebarHeader>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton
               size="lg"
-              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground "
+              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground flex items-center gap-3"
             >
-              <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                <GalleryVerticalEnd className="size-4" />
-              </div>
-              <div className="flex flex-col gap-0.5 leading-none">
-                <span className="font-medium">VK</span>
-                <span className="">v{selectedVersion}</span>
-              </div>
+              <UserAvatar imagePath={selectedVersion.shopImage} />
+              <span className="font-medium line-clamp-1">
+                {selectedVersion.title}
+              </span>
               <ChevronsUpDown className="ml-auto" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
@@ -71,13 +68,19 @@ export function SidebarProfile() {
             align="start"
             side="right"
           >
-            {profileNavData.versions.map((version) => (
+            {profileNavData.shops.map((shop) => (
               <DropdownMenuItem
-                key={version}
-                onSelect={() => setSelectedVersion(version)}
+                key={shop.title}
+                onSelect={() => setSelectedVersion(shop)}
               >
-                v{version}
-                {version === selectedVersion && <Check className="ml-auto" />}
+                <div className="flex items-center gap-5 line-clamp-1">
+                  <UserAvatar imagePath={shop.shopImage} />
+                  <span className="text-base ">{shop.title}</span>
+                </div>
+
+                {shop.title === selectedVersion.title && (
+                  <Check className="ml-auto" />
+                )}
               </DropdownMenuItem>
             ))}
           </DropdownMenuContent>
@@ -90,9 +93,9 @@ export function SidebarProfile() {
             <SidebarGroupContent>
               <SidebarMenu>
                 {item.items.map((item) => (
-                  <Link key={item.title} to={item.url}>
+                  <Link key={item.title} to={item.url} tabIndex={-1}>
                     <SidebarMenuItem>
-                      <SidebarMenuButton>
+                      <SidebarMenuButton tooltip={item.title}>
                         {item.icon}
                         <span>{item.title}</span>
                       </SidebarMenuButton>
@@ -113,12 +116,7 @@ export function SidebarProfile() {
                   size="lg"
                   className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                 >
-                  <Avatar className="h-8 w-8 rounded-lg">
-                    <AvatarImage src={userAvatar} />
-                    <AvatarFallback className="rounded-lg">
-                      <UserRoundX size={20} />
-                    </AvatarFallback>
-                  </Avatar>
+                  <UserAvatar imagePath={userAvatar} />
                   <div className="grid flex-1 text-left text-sm leading-tight">
                     <span className="truncate font-medium">Egor</span>
                     <span className="truncate text-xs">

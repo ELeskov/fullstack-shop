@@ -1,6 +1,5 @@
 import {
   Album,
-  BadgePlus,
   ChartNoAxesColumnIncreasing,
   GalleryHorizontalEnd,
   PaintBucket,
@@ -9,10 +8,24 @@ import {
   UserStar,
 } from 'lucide-react'
 
+import shopImage from '@/shared/assets/icons/favicon-bg-white.svg'
 import { ROUTES } from '@/shared/config'
 
 export const profileNavData = {
-  versions: ['1.0.1', '1.1.0-alpha', '2.0.0-beta1'],
+  shops: [
+    {
+      shopImage: shopImage,
+      title: 'VK',
+    },
+    {
+      shopImage: shopImage,
+      title: 'yandex',
+    },
+    {
+      shopImage: shopImage,
+      title: 'google',
+    },
+  ],
   navMain: [
     {
       title: 'О магазине',
