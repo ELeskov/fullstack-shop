@@ -1,0 +1,12 @@
+.profile-layout {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: rem(20);
+
+  &__aside {
+    position: sticky;
+    top: 0;
+  }
+}

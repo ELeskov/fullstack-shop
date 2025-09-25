@@ -1,4 +1,4 @@
-import { LayoutGrid, Package, Star, TrendingUp } from 'lucide-react'
+import { BadgeRussianRuble, LayoutGrid, Package, Star } from 'lucide-react'
 import { motion } from 'motion/react'
 
 import SpotlightCard from '@/shared/ui/components/SpotlightCard'
@@ -34,7 +34,7 @@ export function StatisticsProfileCard() {
                 $1, 224.1
               </CardTitle>
               <CardAction>
-                <TrendingUp />
+                <BadgeRussianRuble />
               </CardAction>
             </CardHeader>
             <CardFooter className="flex-col items-start gap-1.5 text-sm">

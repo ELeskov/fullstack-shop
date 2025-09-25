@@ -1,6 +1,7 @@
 import {
   Album,
   ChartNoAxesColumnIncreasing,
+  CircleUserRound,
   GalleryHorizontalEnd,
   PaintBucket,
   Settings,
@@ -27,6 +28,16 @@ export const profileNavData = {
     },
   ],
   navMain: [
+    {
+      title: 'Аккаунт',
+      items: [
+        {
+          title: 'Профиль',
+          url: ROUTES.profile.root,
+          icon: <CircleUserRound />,
+        },
+      ],
+    },
     {
       title: 'О магазине',
       items: [

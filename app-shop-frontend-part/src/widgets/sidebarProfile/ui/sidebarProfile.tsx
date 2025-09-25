@@ -4,6 +4,7 @@ import {
   Check,
   ChevronsUpDown,
   LogOut,
+  Plus,
   Sparkles,
   UserRoundX,
 } from 'lucide-react'
@@ -23,6 +24,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/shared/ui/components/ui/dropdown-menu'
+import { Label } from '@/shared/ui/components/ui/label'
 import {
   Sidebar,
   SidebarContent,
@@ -83,6 +85,11 @@ export function SidebarProfile() {
                 )}
               </DropdownMenuItem>
             ))}
+            <DropdownMenuSeparator />
+            <DropdownMenuItem className="gap-5">
+              <Plus className="size-5 " />
+              <Label className="text-base flex-1">Создать магазин</Label>
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarHeader>
