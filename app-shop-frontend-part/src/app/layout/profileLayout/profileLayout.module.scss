@@ -5,6 +5,10 @@
   align-items: start;
   gap: rem(20);
 
+  @include mobile {
+    gap: rem(0);
+  }
+
   &__aside {
     position: sticky;
     top: 0;

@@ -11,6 +11,8 @@ import { CatalogPage } from '@/pages/catalogPage'
 import { HomePage } from '@/pages/homePage'
 import { LikePage } from '@/pages/likePage'
 import { LoginPage } from '@/pages/loginPage'
+import { MyProductPage } from '@/pages/myProductPage'
+import { ProfilePage } from '@/pages/profilePage'
 import { SignupPage } from '@/pages/signupPage'
 import { StatisticsPage } from '@/pages/statisticsPage'
 
@@ -51,7 +53,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: ROUTES.profile.root,
-        element: <div>Профиль</div>,
+        element: <ProfilePage />,
       },
       {
         path: ROUTES.profile.shops.statistics,
@@ -63,7 +65,7 @@ export const router = createBrowserRouter([
       },
       {
         path: ROUTES.profile.shops.products,
-        element: <div>Продукты</div>,
+        element: <MyProductPage />,
       },
       {
         path: ROUTES.profile.shops.categories,
