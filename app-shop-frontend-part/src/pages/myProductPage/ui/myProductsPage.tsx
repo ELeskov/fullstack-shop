@@ -12,9 +12,9 @@ import {
 } from '@/shared/ui/components/ui/table'
 import { ProfileHeader } from '@/widgets/profileHeader'
 
-import s from './myProductPage.module.scss'
+import s from './myProductsPage.module.scss'
 
-export function MyProductPage() {
+export function MyProductsPage() {
   return (
     <div className={s['my-product-page']}>
       <ProfileHeader
@@ -29,9 +29,18 @@ export function MyProductPage() {
               Название
               <ArrowUpDown size={20} />
             </TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Method</TableHead>
-            <TableHead className="text-right">Amount</TableHead>
+            <TableHead>
+              Название
+              <ArrowUpDown size={20} />
+            </TableHead>
+            <TableHead>
+              Название
+              <ArrowUpDown size={20} />
+            </TableHead>
+            <TableHead>
+              Название
+              <ArrowUpDown size={20} />
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
