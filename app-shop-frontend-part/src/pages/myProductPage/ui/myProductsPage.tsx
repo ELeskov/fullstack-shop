@@ -11,6 +11,15 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from '@/shared/ui/components/ui/dropdown-menu'
+import { Label } from '@/shared/ui/components/ui/label'
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/shared/ui/components/ui/select'
 import {
   Table,
   TableBody,
@@ -26,7 +35,9 @@ import {
   createColumnHelper,
   flexRender,
   getCoreRowModel,
+  getPaginationRowModel,
   getSortedRowModel,
+  type SortingState,
   useReactTable,
 } from '@tanstack/react-table'
 
@@ -95,6 +106,7 @@ const defaultColumns = [
     cell: (info) => info.getValue(),
     header: ({ column }) => (
       <Button
+        variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
       >
         Цена
@@ -283,11 +295,30 @@ export function MyProductsPage() {
     },
   ])
 
+  const [rowSelection, setRowSelection] = useState({})
+  const [pagination, setPagination] = useState({
+    pageIndex: 0,
+    pageSize: 10,
+  })
+  const [sorting, setSorting] = useState<SortingState>([])
+
   const table = useReactTable({
     data: collectionProducts,
     columns: defaultColumns,
+    state: {
+      rowSelection,
+      pagination,
+      sorting,
+    },
     getCoreRowModel: getCoreRowModel(),
+
+    onRowSelectionChange: setRowSelection,
+
     getSortedRowModel: getSortedRowModel(),
+    onSortingChange: setSorting,
+
+    getPaginationRowModel: getPaginationRowModel(),
+    onPaginationChange: setPagination,
   })
 
   return (
@@ -368,6 +399,38 @@ export function MyProductsPage() {
             )}
           </TableBody>
         </Table>
+      </div>
+
+      <div className="flex justify-between my-4 gap-5">
+        <div className="text-muted-foreground flex-1 text-sm">
+          {table.getFilteredSelectedRowModel().rows.length} of{' '}
+          {table.getFilteredRowModel().rows.length} row(s) selected.
+        </div>
+        <div className="flex w-fit items-center justify-center">
+          Page {table.getState().pagination.pageIndex + 1} of{' '}
+          {table.getPageCount()}
+        </div>
+        <div className="flex gap-x-3">
+          <Label htmlFor="rows-per-page">Cтрок на странице</Label>
+          <Select
+            onValueChange={(value) => {
+              table.setPageSize(Number(value))
+            }}
+          >
+            <SelectTrigger id="rows-per-page">
+              <SelectValue placeholder={table.getState().pagination.pageSize} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                {[10, 20, 30, 40, 50].map((countItems) => (
+                  <SelectItem key={countItems} value={`${countItems}`}>
+                    {countItems}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
     </div>
   )
