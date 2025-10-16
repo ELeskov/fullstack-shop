@@ -16,14 +16,14 @@ export default tseslint.config([
     plugins: {
       prettier: prettierPlugin,
       'unused-imports': unusedImports,
-      'simple-import-sort': simpleSortImportPlugin
+      'simple-import-sort': simpleSortImportPlugin,
     },
     extends: [
       js.configs.recommended,
       tseslint.configs.recommended,
       reactHooks.configs['recommended-latest'],
       reactRefresh.configs.vite,
-      prettierConfig
+      prettierConfig,
     ],
     languageOptions: {
       ecmaVersion: 2020,
@@ -34,25 +34,25 @@ export default tseslint.config([
       'padding-line-between-statements': [
         'error',
         { blankLine: 'always', prev: 'import', next: '*' },
-        { blankLine: 'any', prev: 'import', next: 'import' } // не вставлять лишние пустые строки между импортами
+        { blankLine: 'any', prev: 'import', next: 'import' }, // не вставлять лишние пустые строки между импортами
       ],
       'simple-import-sort/imports': [
         'error',
         {
           groups: [
             ['^react', '^next', '^[a-z]'],
-            ['^@/shared', '^@/features', '^@/entities', '^@/widgets'],
+            ['^@/widgets', '^@/features', '^@/entities', '^@/shared'],
             ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
             ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
-            ['^.+\\.s?css$']
-          ]
-        }
+            ['^.+\\.s?css$'],
+          ],
+        },
       ],
       'simple-import-sort/exports': 'error',
 
       'no-console': 'warn',
-      'eqeqeq': 'warn',
-      'curly': 'warn',
+      eqeqeq: 'warn',
+      curly: 'warn',
       'no-else-return': 'warn',
       'default-case': 'warn',
 
@@ -68,7 +68,7 @@ export default tseslint.config([
           vars: 'all',
           varsIgnorePattern: '^_',
           args: 'after-used',
-          argsIgnorePattern: '^_'
+          argsIgnorePattern: '^_',
         },
       ],
     },

@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
 import clsx from 'clsx'
-import { Heart, Menu, ShoppingCart } from 'lucide-react'
+import { Heart, ShoppingCart } from 'lucide-react'
 
+import { DropdownMenuProfile } from '@/widgets/dropdownMenuProfile'
 import { ROUTES } from '@/shared/config'
 import { Button } from '@/shared/ui/components/ui/button'
 import {
@@ -13,17 +14,8 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/shared/ui/components/ui/navigation-menu'
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from '@/shared/ui/components/ui/sheet'
 import { ListItem } from '@/shared/ui/listItem'
 import { Logo } from '@/shared/ui/logo'
-import { DropdownMenuProfile } from '@/widgets/dropdownMenuProfile'
 
 import s from './header.module.scss'
 
@@ -83,20 +75,7 @@ export function Header() {
         </NavigationMenu>
 
         <div className="visible-mobile">
-          <Sheet>
-            <SheetTrigger>
-              <Menu style={{ cursor: 'pointer' }} />
-            </SheetTrigger>
-            <SheetContent>
-              <SheetHeader>
-                <SheetTitle>Are you absolutely sure?</SheetTitle>
-                <SheetDescription>
-                  This action cannot be undone. This will permanently delete
-                  your account and remove your data from our servers.
-                </SheetDescription>
-              </SheetHeader>
-            </SheetContent>
-          </Sheet>
+          <DropdownMenuProfile />
         </div>
 
         {isAuthorization ? (

@@ -27,6 +27,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/shared/ui/components/ui/dropdown-menu'
+import { Separator } from '@/shared/ui/components/ui/separator'
 
 export function DropdownMenuProfile() {
   return (
@@ -68,12 +69,22 @@ export function DropdownMenuProfile() {
         <DropdownMenuGroup>
           <DropdownMenuSub>
             <Link to={ROUTES.profile.shops.root}>
-              <DropdownMenuSubTrigger className="cursor-pointer">
+              <DropdownMenuSubTrigger className="cursor-pointer hidden-mobile">
                 Магазины
               </DropdownMenuSubTrigger>
             </Link>
+
+            <DropdownMenuSubTrigger className="cursor-pointer visible-mobile">
+              Магазины
+            </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
+                <Link to={ROUTES.profile.shops.root}>
+                  <DropdownMenuItem className="cursor-pointer">
+                    Магазины
+                  </DropdownMenuItem>
+                </Link>
+                <Separator />
                 <Link to={ROUTES.profile.shops.create}>
                   <DropdownMenuItem className="hover:!text-green-400">
                     <BadgePlus />

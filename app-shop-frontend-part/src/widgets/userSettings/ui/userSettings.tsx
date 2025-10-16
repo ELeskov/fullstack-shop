@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form'
 import clsx from 'clsx'
 import { Pen, UserRoundX } from 'lucide-react'
 
+import { ChangePasswordButton } from '@/features/changePasswordButton'
+import { LogoutButton } from '@/features/logoutButton'
 import avatar from '@/shared/assets/icons/favicon-bg-white.svg'
 import {
   Avatar,
@@ -15,12 +17,9 @@ import {
   FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from '@/shared/ui/components/ui/form'
 import { Input } from '@/shared/ui/components/ui/input'
-import { ChangePasswordButton } from '@/features/changePasswordButton'
-import { LogoutButton } from '@/features/logoutButton'
 
 import s from './userSettings.module.scss'
 
@@ -31,7 +30,7 @@ export function UserSettings() {
   return (
     <section className={s['user-settings']}>
       <div className={s['user-settings__content']}>
-        <div className={s['user-settings__conteiner']}>
+        <div className={s['user-settings__container']}>
           <div className={s['user-settings__image-wrapper']}>
             <Avatar
               onMouseEnter={() => setIsShowIcon(true)}
@@ -59,84 +58,81 @@ export function UserSettings() {
             </div>
           </div>
         </div>
-        <div className={s['user-settings__input-forms']}>
-          <Form {...form}>
-            <FormField
-              control={form.control}
-              name="firstname"
-              render={() => (
-                <FormItem>
-                  <FormLabel />
-                  <FormControl>
-                    <Input type="text" placeholder="Имя" name="firstname" />
-                  </FormControl>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="surname"
-              render={() => (
-                <FormItem>
-                  <FormLabel />
-                  <FormControl>
-                    <Input
-                      type="text"
-                      placeholder="Фамилия"
-                      name="surname"
-                      autoComplete="family-name"
-                    />
-                  </FormControl>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="email"
-              render={() => (
-                <FormItem>
-                  <FormLabel />
-                  <FormControl>
-                    <Input
-                      type="email"
-                      placeholder="Email"
-                      name="email"
-                      autoComplete="email"
-                    />
-                  </FormControl>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="tel"
-              render={() => (
-                <FormItem>
-                  <FormLabel />
-                  <FormControl>
-                    <Input
-                      type="tel"
-                      placeholder="Телефон"
-                      name="tel"
-                      autoComplete="tel"
-                    />
-                  </FormControl>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </Form>
-        </div>
+        <Form {...form}>
+          <div className={s['user-settings__form-content']}>
+            <div className={s['user-settings__input-group']}>
+              <FormField
+                control={form.control}
+                name="firstName"
+                render={() => (
+                  <FormItem>
+                    <FormControl>
+                      <Input type="text" placeholder="Имя" name="firstName" />
+                    </FormControl>
+                    <FormDescription />
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="surname"
+                render={() => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        type="text"
+                        placeholder="Фамилия"
+                        name="surname"
+                        autoComplete="family-name"
+                      />
+                    </FormControl>
+                    <FormDescription />
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className={s['user-settings__input-group']}>
+              <FormField
+                control={form.control}
+                name="email"
+                render={() => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        type="email"
+                        placeholder="Email"
+                        name="email"
+                        autoComplete="email"
+                      />
+                    </FormControl>
+                    <FormDescription />
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="tel"
+                render={() => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        type="tel"
+                        placeholder="Телефон"
+                        name="tel"
+                        autoComplete="tel"
+                      />
+                    </FormControl>
+                    <FormDescription />
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+          </div>
+        </Form>
 
         <div className={s['user-settings__bottom-items']}>
           <div className="flex gap-3">

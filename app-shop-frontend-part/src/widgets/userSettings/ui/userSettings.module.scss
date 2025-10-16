@@ -5,12 +5,12 @@
     display: flex;
     flex-direction: column;
     gap: rem(40);
-    padding: rem(40);
+    padding: clamp(rem(10), 3vw, rem(40));
     border-radius: rem(20);
-    box-shadow: rem(-2) rem(2) rem(10) rgba(255, 255, 255, 0.1);
+    border: rem(1) solid rgba(255, 255, 255, 0.1);
   }
 
-  &__conteiner {
+  &__container {
     display: flex;
     align-items: center;
     gap: rem(20);
@@ -49,15 +49,19 @@
     color: var(--color-gray);
   }
 
-  &__input-forms {
+  &__form-content {
     display: grid;
-    grid-template-columns: repeat(2, rem(400));
-    gap: rem(30);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
   }
 
-  &__input-wrapper {
+  &__input-group {
     display: flex;
     flex-direction: column;
-    row-gap: rem(10);
+    gap: 10px;
   }
 }
