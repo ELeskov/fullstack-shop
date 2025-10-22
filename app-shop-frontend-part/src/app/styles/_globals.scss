@@ -63,6 +63,7 @@ h2 {
 .layout {
   display: flex;
   flex-direction: column;
+  row-gap: rem(20);
   min-height: 100vh;
   flex: 1;
 }

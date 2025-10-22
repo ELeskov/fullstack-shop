@@ -68,17 +68,11 @@ export function DropdownMenuProfile() {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuSub>
-            <Link to={ROUTES.profile.shops.root}>
-              <DropdownMenuSubTrigger className="cursor-pointer hidden-mobile">
-                Магазины
-              </DropdownMenuSubTrigger>
-            </Link>
-
-            <DropdownMenuSubTrigger className="cursor-pointer visible-mobile">
+            <DropdownMenuSubTrigger className="cursor-pointer">
               Магазины
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
-              <DropdownMenuSubContent>
+              <DropdownMenuSubContent className="flex flex-col gap-y-1">
                 <Link to={ROUTES.profile.shops.root}>
                   <DropdownMenuItem className="cursor-pointer">
                     Магазины
