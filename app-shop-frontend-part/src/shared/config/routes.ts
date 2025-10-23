@@ -10,15 +10,17 @@ export const ROUTES = {
     cart: '/cart',
     like: '/likes',
 
-    shops: createRoutes('/shops', {
+    shops: {
       create: '/create',
       reviews: '/reviews',
       statistics: '/statistics',
-      products: '/products',
+      products: {
+        create: '/create',
+      },
       settings: '/settings',
       colors: '/colors',
       categories: '/categories',
-    }),
+    },
 
     settings: '/settings',
     orders: '/orders',

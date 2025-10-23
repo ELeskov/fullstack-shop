@@ -97,7 +97,7 @@ export function DropdownMenuProfile() {
                     Статистика
                   </DropdownMenuItem>
                 </Link>
-                <Link to={ROUTES.profile.shops.products}>
+                <Link to={ROUTES.profile.shops.products.root}>
                   <DropdownMenuItem className="hover:!text-emerald-500">
                     <GalleryHorizontalEnd />
                     Мои товары

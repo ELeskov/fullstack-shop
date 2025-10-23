@@ -48,7 +48,7 @@ export const profileNavData = {
         },
         {
           title: 'Мои товары',
-          url: ROUTES.profile.shops.products,
+          url: ROUTES.profile.shops.products.root,
           icon: <GalleryHorizontalEnd />,
         },
         {

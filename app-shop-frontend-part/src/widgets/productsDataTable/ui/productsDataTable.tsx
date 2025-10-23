@@ -85,6 +85,7 @@ const defaultColumns = [
     cell: (info) => info.getValue(),
     header: ({ column }) => (
       <Button
+        className="!px-0"
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
       >
@@ -98,6 +99,7 @@ const defaultColumns = [
     cell: (info) => info.getValue(),
     header: ({ column }) => (
       <Button
+        className="!px-0"
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
       >
@@ -110,7 +112,7 @@ const defaultColumns = [
   columnHelper.accessor('color', {
     cell: (info) => (
       <div
-        className={`h-6 w-6 rounded-[50%] bg-[${info.getValue()}]`}
+        className={`h-6 w-6 rounded-[50%] bg-[${info.getValue()}] border`}
         style={{ backgroundColor: info.getValue() }}
       ></div>
     ),
@@ -123,6 +125,7 @@ const defaultColumns = [
     },
     header: ({ column }) => (
       <Button
+        className="!px-0"
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
       >
@@ -142,6 +145,7 @@ const defaultColumns = [
     },
     header: ({ column }) => (
       <Button
+        className="!px-0"
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
       >
@@ -227,7 +231,7 @@ export function ProductsDataTable() {
 
         <Button
           className="ml-auto"
-          onClick={() => navigate(ROUTES.profile.shops.products)}
+          onClick={() => navigate(ROUTES.profile.shops.products.create)}
         >
           Создать товар
           <Plus />
@@ -259,10 +263,7 @@ export function ProductsDataTable() {
                   data-state={row.getIsSelected() && 'selected'}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell
-                      style={{ width: cell.column.getSize() }}
-                      key={cell.id}
-                    >
+                    <TableCell key={cell.id}>
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext(),
