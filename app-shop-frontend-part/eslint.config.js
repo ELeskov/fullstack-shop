@@ -40,7 +40,8 @@ export default tseslint.config([
         'error',
         {
           groups: [
-            ['^react', '^next', '^[a-z]'],
+            ['^react', '^next'],
+            ['^@?\\w'],
             ['^@/widgets', '^@/features', '^@/entities', '^@/shared'],
             ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
             ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
