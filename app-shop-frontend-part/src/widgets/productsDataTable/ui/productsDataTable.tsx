@@ -288,7 +288,7 @@ export function ProductsDataTable() {
         <div
           className={clsx(
             s['data-table__bottom-row-selection-info'],
-            'text-muted-foreground',
+            'text-muted-foreground select-none',
           )}
         >
           {table.getFilteredSelectedRowModel().rows.length} <span>из</span>
@@ -319,7 +319,7 @@ export function ProductsDataTable() {
         <div
           className={clsx(
             s['data-table__bottom-page-info'],
-            'text-muted-foreground',
+            'text-muted-foreground select-none',
           )}
         >
           <span>Страница</span>
