@@ -1,11 +1,12 @@
 import { Link } from 'react-router'
+
 import { Atom } from 'lucide-react'
 
+import { LoginButton } from '@/features/loginButton'
 import { ROUTES } from '@/shared/config'
 import { Button } from '@/shared/ui/components/ui/button'
 import { Input } from '@/shared/ui/components/ui/input'
 import { Label } from '@/shared/ui/components/ui/label'
-import { LoginButton } from '@/features/loginButton'
 
 import { cn } from '@/app/lib/utils'
 
@@ -27,7 +28,7 @@ export function SignupForm({
               </div>
               <span className="sr-only">Shop.</span>
             </a>
-            <h1 className="!text-xl font-bold">Добро пожаловать в Shop.</h1>
+            <h1 className="text-xl! font-bold">Добро пожаловать в Shop.</h1>
             <div className="text-center text-sm">
               У вас уже есть аккаунт?{' '}
               <Link to={ROUTES.login} className="underline underline-offset-4">

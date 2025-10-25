@@ -10,7 +10,7 @@
     border: rem(1) solid rgba(255, 255, 255, 0.1);
   }
 
-  &__container {
+  &__preview-info-container {
     display: flex;
     align-items: center;
     gap: rem(20);
@@ -21,11 +21,6 @@
     height: rem(100);
     width: rem(100);
     cursor: pointer;
-
-    @include mobile-s {
-      height: rem(70);
-      width: rem(70);
-    }
   }
 
   &__image {

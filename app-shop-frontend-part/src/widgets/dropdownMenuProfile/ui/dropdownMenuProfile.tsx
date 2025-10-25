@@ -41,25 +41,25 @@ export function DropdownMenuProfile() {
       <DropdownMenuContent className="w-56 mx-2.5" align="start">
         <DropdownMenuGroup>
           <Link to={ROUTES.profile.root}>
-            <DropdownMenuItem className="hover:!text-blue-400">
+            <DropdownMenuItem className="hover:text-blue-400!">
               <User />
               Профиль
             </DropdownMenuItem>
           </Link>
           <Link to={ROUTES.profile.like}>
-            <DropdownMenuItem className="hover:!text-pink-400">
+            <DropdownMenuItem className="hover:text-pink-400!">
               <Heart />
               Избранные
             </DropdownMenuItem>
           </Link>
           <Link to={ROUTES.profile.orders}>
-            <DropdownMenuItem className="hover:!text-green-400">
+            <DropdownMenuItem className="hover:text-green-400!">
               <ShoppingBag />
               Покупки
             </DropdownMenuItem>
           </Link>
           <Link to={ROUTES.profile.cart}>
-            <DropdownMenuItem className="hover:!text-orange-400">
+            <DropdownMenuItem className="hover:text-orange-400!">
               <ShoppingCart />
               Корзина
             </DropdownMenuItem>
@@ -80,25 +80,25 @@ export function DropdownMenuProfile() {
                 </Link>
                 <Separator />
                 <Link to={ROUTES.profile.shops.create}>
-                  <DropdownMenuItem className="hover:!text-green-400">
+                  <DropdownMenuItem className="hover:text-green-400!">
                     <BadgePlus />
                     Создать
                   </DropdownMenuItem>
                 </Link>
                 <Link to={ROUTES.profile.shops.reviews}>
-                  <DropdownMenuItem className="hover:!text-yellow-300">
+                  <DropdownMenuItem className="hover:text-yellow-300!">
                     <UserStar />
                     Отзывы
                   </DropdownMenuItem>
                 </Link>
                 <Link to={ROUTES.profile.shops.statistics}>
-                  <DropdownMenuItem className="hover:!text-teal-500">
+                  <DropdownMenuItem className="hover:text-teal-500!">
                     <ChartNoAxesColumnIncreasing />
                     Статистика
                   </DropdownMenuItem>
                 </Link>
                 <Link to={ROUTES.profile.shops.products.root}>
-                  <DropdownMenuItem className="hover:!text-emerald-500">
+                  <DropdownMenuItem className="hover:text-emerald-500!">
                     <GalleryHorizontalEnd />
                     Мои товары
                   </DropdownMenuItem>
@@ -122,7 +122,7 @@ export function DropdownMenuProfile() {
             </DropdownMenuShortcut>
           </DropdownMenuItem>
         </Link>
-        <DropdownMenuItem className="hover:!text-red-400">
+        <DropdownMenuItem className="hover:text-red-400!">
           Выйти
           <DropdownMenuShortcut>
             <LogOut />

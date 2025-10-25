@@ -1,5 +1,17 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
+
+import {
+  type ColumnFiltersState,
+  createColumnHelper,
+  flexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  type SortingState,
+  useReactTable,
+} from '@tanstack/react-table'
 import clsx from 'clsx'
 import {
   ArrowUpDown,
@@ -8,6 +20,7 @@ import {
   ChevronRight,
   ChevronsLeft,
   ChevronsRight,
+  MoreHorizontal,
   Plus,
 } from 'lucide-react'
 
@@ -18,6 +31,9 @@ import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/shared/ui/components/ui/dropdown-menu'
 import { Input } from '@/shared/ui/components/ui/input'
@@ -42,18 +58,6 @@ import {
 import { type Product, productsDataTable } from '../data/data'
 
 import s from './productsDataTable.module.scss'
-
-import {
-  type ColumnFiltersState,
-  createColumnHelper,
-  flexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  type SortingState,
-  useReactTable,
-} from '@tanstack/react-table'
 
 const columnHelper = createColumnHelper<Product>()
 
@@ -85,7 +89,7 @@ const defaultColumns = [
     cell: (info) => info.getValue(),
     header: ({ column }) => (
       <Button
-        className="!px-0"
+        className="px-0!"
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
       >
@@ -99,7 +103,7 @@ const defaultColumns = [
     cell: (info) => info.getValue(),
     header: ({ column }) => (
       <Button
-        className="!px-0"
+        className="px-0!"
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
       >
@@ -125,7 +129,7 @@ const defaultColumns = [
     },
     header: ({ column }) => (
       <Button
-        className="!px-0"
+        className="px-0!"
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
       >
@@ -145,7 +149,7 @@ const defaultColumns = [
     },
     header: ({ column }) => (
       <Button
-        className="!px-0"
+        className="px-0!"
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
       >
@@ -153,6 +157,28 @@ const defaultColumns = [
         <ArrowUpDown />
       </Button>
     ),
+  }),
+
+  columnHelper.display({
+    id: 'actions',
+    cell: () => (
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" className="h-8 w-8 p-0">
+            <span className="sr-only">Open menu</span>
+            <MoreHorizontal />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          <DropdownMenuLabel>Actions</DropdownMenuLabel>
+          <DropdownMenuItem>Copy payment ID</DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>View customer</DropdownMenuItem>
+          <DropdownMenuItem>View payment details</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    ),
+    enableHiding: false,
   }),
 ]
 
@@ -167,6 +193,7 @@ export function ProductsDataTable() {
     pageSize: 10,
   })
   const navigate = useNavigate()
+
   const table = useReactTable({
     data: collectionProducts,
     columns: defaultColumns,
@@ -227,6 +254,7 @@ export function ProductsDataTable() {
             table.getColumn('title')?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
+          name="data-table-search-product"
         />
 
         <Button

@@ -68,7 +68,7 @@ export function SidebarProfile() {
           <DropdownMenuContent
             className="w-(--radix-dropdown-menu-trigger-width)"
             align="start"
-            side="right"
+            side={isMobile ? 'bottom' : 'right'}
           >
             {profileNavData.shops.map((shop) => (
               <DropdownMenuItem

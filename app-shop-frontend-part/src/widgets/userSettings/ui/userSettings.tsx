@@ -30,7 +30,7 @@ export function UserSettings() {
   return (
     <section className={s['user-settings']}>
       <div className={s['user-settings__content']}>
-        <div className={s['user-settings__container']}>
+        <div className={s['user-settings__preview-info-container']}>
           <div className={s['user-settings__image-wrapper']}>
             <Avatar
               onMouseEnter={() => setIsShowIcon(true)}
@@ -45,7 +45,7 @@ export function UserSettings() {
             <Pen
               className={clsx(
                 `absolute bottom-0 right-0 hidden`,
-                isShowIcon ? '!block' : '',
+                isShowIcon ? 'block!' : '',
               )}
               size={18}
             />
