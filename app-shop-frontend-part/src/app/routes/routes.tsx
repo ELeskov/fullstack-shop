@@ -8,6 +8,7 @@ import { ProfileLayout } from '../layout/profileLayout'
 import { MainLayout } from '@/app/layout/mainLayout'
 import { CartPage } from '@/pages/cartPage/ui/cartPage'
 import { CatalogPage } from '@/pages/catalogPage'
+import { CreateProductPage } from '@/pages/createProductPage'
 import { HomePage } from '@/pages/homePage'
 import { LikePage } from '@/pages/likePage'
 import { LoginPage } from '@/pages/loginPage'
@@ -64,8 +65,12 @@ export const router = createBrowserRouter([
         element: <div>Цвета</div>,
       },
       {
-        path: ROUTES.profile.shops.products,
+        path: ROUTES.profile.shops.products.root,
         element: <MyProductPage />,
+      },
+      {
+        path: ROUTES.profile.shops.products.create,
+        element: <CreateProductPage />,
       },
       {
         path: ROUTES.profile.shops.categories,
