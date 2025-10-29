@@ -1,11 +1,18 @@
 import { Controller, type SubmitHandler, useForm } from 'react-hook-form'
 
-import { ImagePlus } from 'lucide-react'
+import { zodResolver } from '@hookform/resolvers/zod'
 
+import { type ProductData, schema } from '@/shared/types'
 import { Button } from '@/shared/ui/components/ui/button'
+import {
+  Dropzone,
+  DropzoneContent,
+  DropzoneEmptyState,
+} from '@/shared/ui/components/ui/dropzone'
 import {
   Field,
   FieldDescription,
+  FieldError,
   FieldGroup,
   FieldLabel,
   FieldSet,
@@ -18,26 +25,34 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/shared/ui/components/ui/select'
+import { Textarea } from '@/shared/ui/components/ui/textarea'
 
 import s from './createNewProductForm.module.scss'
 
-interface Form {
-  title: string
-  price: number
-  category: string
-  color: string
-}
 export function CreateNewProductForm() {
-  const { register, handleSubmit, control } = useForm<Form>({
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+    reset,
+  } = useForm<ProductData>({
+    resolver: zodResolver(schema),
     defaultValues: {
       title: '',
       price: 1,
       category: '',
       color: '',
+      description: '',
+      images: undefined,
     },
   })
 
-  const onSubmit: SubmitHandler<Form> = (data) => console.log(data)
+  const onSubmit: SubmitHandler<ProductData> = (data) => {
+    console.log(data)
+    reset()
+  }
+
   return (
     <form
       className={s['create-new-product-form']}
@@ -46,16 +61,29 @@ export function CreateNewProductForm() {
       <FieldGroup>
         <FieldSet>
           <FieldGroup>
-            <Field className="w-fit">
-              <FieldLabel htmlFor="product-image-upload">Картинки</FieldLabel>
-              <Button
-                id="product-image-upload"
-                variant={'secondary'}
-                type="button"
-              >
-                <ImagePlus />
-                Загрузить картинки
-              </Button>
+            <Field>
+              <Controller
+                name="images"
+                control={control}
+                render={({ field }) => (
+                  <Dropzone
+                    accept={{ 'image/*': [] }}
+                    maxFiles={5}
+                    maxSize={1024 * 1024 * 10} // 10MB
+                    minSize={1024} // 1KB
+                    onDrop={(acceptedFiles) => {
+                      field.onChange(acceptedFiles)
+                    }}
+                    src={field.value}
+                  >
+                    <DropzoneEmptyState />
+                    <DropzoneContent />
+                  </Dropzone>
+                )}
+              />
+              {errors.images && (
+                <FieldError>{errors.images.message}</FieldError>
+              )}
               <FieldDescription>
                 Загрузите картинки для вашего товара
               </FieldDescription>
@@ -73,20 +101,20 @@ export function CreateNewProductForm() {
                 name="title"
                 placeholder="Смартфон Apple iPhone 17 Pro 256 ГБ синий"
                 type="text"
-                required
               />
+              {errors.title && <FieldError>{errors.title.message}</FieldError>}
             </Field>
             <Field>
               <FieldLabel htmlFor="product-price">Цена (руб)</FieldLabel>
               <Input
-                {...register('price')}
+                {...register('price', { valueAsNumber: true })}
                 id="product-price"
                 name="price"
                 type="number"
                 placeholder="128 999 ₽"
                 min={1}
-                required
               />
+              {errors.price && <FieldError>{errors.price.message}</FieldError>}
             </Field>
           </FieldGroup>
         </FieldSet>
@@ -103,13 +131,12 @@ export function CreateNewProductForm() {
                     onValueChange={field.onChange}
                     value={field.value}
                     name="product-category"
-                    required
                   >
                     <SelectTrigger id="product-category">
                       <SelectValue placeholder="Выберите категорию" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="smartphones">Смартфоны</SelectItem>
+                      <SelectItem value="smartphones">Телефоны</SelectItem>
                       <SelectItem value="laptops">Ноутбуки</SelectItem>
                       <SelectItem value="tablets">Планшеты</SelectItem>
                       <SelectItem value="headphones">Наушники</SelectItem>
@@ -126,6 +153,9 @@ export function CreateNewProductForm() {
                   </Select>
                 )}
               />
+              {errors.category && (
+                <FieldError>{errors.category.message}</FieldError>
+              )}
             </Field>
             <Field>
               <FieldLabel htmlFor="product-color">Цвет</FieldLabel>
@@ -138,7 +168,6 @@ export function CreateNewProductForm() {
                     onValueChange={field.onChange}
                     value={field.value}
                     name="product-color"
-                    required
                   >
                     <SelectTrigger id="product-color">
                       <SelectValue placeholder="Выберите цвет" />
@@ -162,12 +191,29 @@ export function CreateNewProductForm() {
                   </Select>
                 )}
               />
+              {errors.color && <FieldError>{errors.color.message}</FieldError>}
             </Field>
           </FieldGroup>
         </FieldSet>
-
+        <FieldGroup>
+          <FieldLabel htmlFor="product-description">Описание</FieldLabel>
+          <Controller
+            control={control}
+            name="description"
+            render={({ field }) => (
+              <Textarea
+                onChange={field.onChange}
+                value={field.value}
+                id="product-description"
+              />
+            )}
+          />
+          {errors.description && (
+            <FieldError>{errors.description.message}</FieldError>
+          )}
+        </FieldGroup>
         <Field orientation="horizontal">
-          <Button type="submit">Создать</Button>
+          <Button type="submit">Создать товар</Button>
         </Field>
       </FieldGroup>
     </form>

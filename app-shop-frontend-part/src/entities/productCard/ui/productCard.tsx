@@ -1,8 +1,9 @@
 import { Link } from 'react-router'
+
 import clsx from 'clsx'
 
-import { AddBasketButton } from '@/shared/ui/addBasketButton'
 import { HeartButton } from '@/features/heartButton'
+import { AddBasketButton } from '@/shared/ui/addBasketButton'
 
 import s from './productCard.module.scss'
 

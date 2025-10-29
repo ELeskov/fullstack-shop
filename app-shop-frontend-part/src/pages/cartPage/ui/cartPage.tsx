@@ -1,6 +1,6 @@
-import { TitlePage } from '@/shared/ui/titlePage/titlePage'
 import { Breadcrumbs } from '@/widgets/breadcrumbs'
 import { CartProductsList } from '@/widgets/cartProductsList'
+import { TitlePage } from '@/shared/ui/titlePage/titlePage'
 
 import s from './cartPage.module.scss'
 
