@@ -1,0 +1,46 @@
+.data-table {
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(20);
+  }
+
+  &__body {
+    overflow: auto;
+    border-radius: rem(10);
+    border: rem(1) solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+.data-table {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    column-gap: rem(15);
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    column-gap: rem(20);
+
+    &-row-selection-info {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      column-gap: rem(4);
+    }
+
+    &-page-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: rem(4);
+    }
+
+    &-rows-of-page-info {
+      display: flex;
+      column-gap: rem(12);
+    }
+  }
+}

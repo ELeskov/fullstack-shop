@@ -1,0 +1,7 @@
+.filters-block {
+  &__dropdown {
+    display: flex;
+    align-items: center;
+    column-gap: rem(20);
+  }
+}

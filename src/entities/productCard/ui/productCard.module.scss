@@ -1,0 +1,49 @@
+.product-card {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    row-gap: rem(10);
+  }
+
+  &__top,
+  &__middle,
+  &__bottom {
+    flex-grow: 1;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    border-radius: rem(10);
+    object-fit: cover;
+    aspect-ratio: auto;
+  }
+
+  &__price-wrap {
+    display: flex;
+    column-gap: rem(10);
+  }
+
+  &__brand-wrap {
+    display: flex;
+    font-size: rem(14);
+    font-weight: 400;
+  }
+
+  &__name {
+    color: var(--color-gray);
+    display: -webkit-box;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

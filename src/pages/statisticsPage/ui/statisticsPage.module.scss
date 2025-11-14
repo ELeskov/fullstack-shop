@@ -1,0 +1,7 @@
+.statistics-page {
+  &__body {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(20);
+  }
+}

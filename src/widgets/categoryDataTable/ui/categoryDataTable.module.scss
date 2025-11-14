@@ -1,0 +1,35 @@
+.category-data-table {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(20);
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    column-gap: rem(15);
+  }
+
+  &__body {
+    overflow: auto;
+    border-radius: rem(10);
+    border: rem(1) solid rgba(255, 255, 255, 0.1);
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    column-gap: rem(20);
+    &-rows-of-page-info {
+      flex: 1;
+      display: flex;
+      column-gap: rem(12);
+    }
+
+    &-page-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: rem(4);
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.profile-header {
+  margin-bottom: rem(20);
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: rem(5);
+  }
+}

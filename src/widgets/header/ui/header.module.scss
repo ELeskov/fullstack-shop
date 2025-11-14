@@ -1,0 +1,63 @@
+.header {
+  color: var(--color-gray);
+
+  &-list {
+    display: flex;
+    column-gap: rem(10);
+  }
+
+  &-link {
+    border-radius: rem(6);
+    padding: rem(3) rem(12);
+    transition: all 0.2s;
+
+    @include hover {
+      color: white;
+      background-color: rgb(255, 255, 255, 0.1);
+    }
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: rem(20);
+    height: rem(80);
+  }
+
+  &-logo {
+    flex: 1;
+    padding: rem(5);
+    &:focus-visible {
+      outline: rem(2) solid rgba(255, 255, 255, 0.2);
+      outline-offset: rem(2);
+      border-radius: rem(5);
+    }
+  }
+
+  &__actions,
+  &__auth-btn {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    column-gap: rem(10);
+    flex: 1;
+  }
+
+  &__actions {
+    &-list {
+      display: flex;
+      align-items: center;
+      column-gap: rem(20);
+    }
+    &-icon {
+      transition: all 0.3s ease;
+      filter: drop-shadow(0 0 7px oklch(0% 0 0));
+
+      @include hover {
+        color: #fff;
+        filter: drop-shadow(0 0 7px oklch(100% 0.00011 271.152));
+      }
+    }
+  }
+}

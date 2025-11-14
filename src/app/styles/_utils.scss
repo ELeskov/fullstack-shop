@@ -1,0 +1,31 @@
+@use 'helpers' as *;
+
+.page-wrapper {
+  @include container-base();
+  @include mobile-adaptation();
+
+  &--profile {
+    @include container-base(var(--container-profile-width));
+    @include mobile-adaptation(var(--container-profile-width));
+
+    main {
+      margin-block: 0;
+    }
+  }
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.hidden-mobile {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.visible-mobile {
+  @include mobile-above {
+    display: none !important;
+  }
+}
